@@ -1,0 +1,85 @@
+Public Class Form1
+
+    Private Sub ComboBox1_SelectedIndexChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles ComboBox1.SelectedIndexChanged
+        Dim prec, ini As Integer
+        Select Case ComboBox1.SelectedIndex
+            Case 0
+                prec = 85
+                txtprec.Text = Convert.ToString(FormatNumber(prec, 2))
+                ini = 7
+                txtini.Text = Convert.ToString(ini)
+            Case 1
+                prec = 90
+                txtprec.Text = Convert.ToString(FormatNumber(prec, 2))
+                ini = 7
+                txtini.Text = Convert.ToString(ini)
+            Case 2
+                prec = 110
+                txtprec.Text = Convert.ToString(FormatNumber(prec, 2))
+                ini = 7
+                txtini.Text = Convert.ToString(ini)
+            Case 3
+                prec = 100
+                txtprec.Text = Convert.ToString(FormatNumber(prec, 2))
+                ini = 7
+                txtini.Text = Convert.ToString(ini)
+            Case 4
+                prec = 70
+                txtprec.Text = Convert.ToString(FormatNumber(prec, 2))
+                ini = 7
+                txtini.Text = Convert.ToString(ini)
+            Case 5
+                prec = 50
+                txtprec.Text = Convert.ToString(FormatNumber(prec, 2))
+                ini = 7
+                txtini.Text = Convert.ToString(ini)
+            Case 6
+                prec = 40
+                txtprec.Text = Convert.ToString(FormatNumber(prec, 2))
+                ini = 7
+                txtini.Text = Convert.ToString(ini)
+            Case 7
+                prec = 30
+                txtprec.Text = Convert.ToString(FormatNumber(prec, 2))
+                ini = 7
+                txtini.Text = Convert.ToString(ini)
+        End Select
+    End Sub
+
+    Private Sub Button1_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Button1.Click
+        Dim canti, pre, subt, des, tot As Integer
+        If (txtprec.Text.Length = 0) Or (txtcanti.Text.Length = 0) Then
+            MessageBox.Show("debe ingresar los campos requeridos")
+        End If
+        canti = Convert.ToDouble(txtcanti.Text)
+        txtprec.Text = Convert.ToDouble(txtprec.Text)
+        subt = Val(txtprec.Text) * Val(txtcanti.Text)
+        txtsubt.Text = (FormatNumber(txtsubt.Text, 2))
+        If canti > 3 And canti <= 5 Then
+            des = subt * 0.08
+        End If
+        If canti > 5 And canti <= 7 Then
+            des = subt * 0.1
+        Else
+            If canti > 7 Then
+                des = subt * 0.2
+            End If
+        End If
+        txtdes.Text = Convert.ToString(FormatNumber(des, 2))
+        tot = subt - des
+        txttot.Text = Convert.ToString(FormatNumber(tot, 2))
+    End Sub
+
+    Private Sub Button2_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Button2.Click
+        txtprec.Clear()
+        txtcanti.Clear()
+        txtini.Clear()
+        txtsubt.Clear()
+        txtdes.Clear()
+        txttot.Clear()
+    End Sub
+
+    Private Sub Button3_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Button3.Click
+        End
+    End Sub
+End Class
